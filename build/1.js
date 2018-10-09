@@ -147,7 +147,7 @@ if (supported.works && displayUI) {
 
 if (!displayUI) {
 	nsynthPlayer = new NSynthSound.Sound({});
-	nsynthPlayer.set('Cuba_Trumpet_Low_Wow');
+	nsynthPlayer.set('Balafon2_Bright_Clarinet_Combi');
 	nsynthPlayer.mix = 0.5;
 }
 
