@@ -1,7 +1,7 @@
-if (displayUI === undefined) {
+if (typeof displayUI === undefined) {
 	displayUI = false;
 }
-if (displayUI === undefined) {
+if (typeof readyState === undefined) {
 	readyState = true;
 }
 
