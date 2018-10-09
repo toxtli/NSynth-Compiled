@@ -2001,11 +2001,6 @@ var Sound = exports.Sound = function () {
 				if (this._carousel.swapped) {
 					val = 1 - val;
 				}
-			} else {
-				var comboA = this._folder;
-				if(!_Folders2.default.includes(comboA)) {
-					val = 1 - val;
-				}
 			}
 			this._mix = val;
 			var floor = Math.floor(val * _Config.Config.interpolationCount);
