@@ -147,7 +147,7 @@ if (supported.works && displayUI) {
 
 if (!displayUI) {
 	nsynthPlayer = new NSynthSound.Sound({});
-	nsynthPlayer.set('Cuba_Trumpet_Guitar-Dual_Amped_Heavy');
+	nsynthPlayer.set('Cuba_Trumpet_Low_Wow');
 	nsynthPlayer.mix = 0.5;
 }
 
