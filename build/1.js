@@ -70,7 +70,7 @@ var supported = new _Supported.Supported(); /**
                                              * limitations under the License.
                                              */
 
-if (supported.works) {
+if (supported.works && displayUI) {
 	var hidden = document.createElement('div');
 	if (!displayUI) {
 		hidden.style.display = 'none';
@@ -145,11 +145,11 @@ if (supported.works) {
 	});
 }
 
-// if (!displayUI) {
-// 	nsynthPlayer = new NSynthSound.Sound({});
-// 	nsynthPlayer.set('Balafon2_Bright_Clav6_Bright');
-// 	nsynthPlayer.mix = 0.5;
-// }
+if (!displayUI) {
+	nsynthPlayer = new NSynthSound.Sound({swapped:false});
+	nsynthPlayer.set('Balafon2_Bright_Clav6_Bright');
+	nsynthPlayer.mix = 0.5;
+}
 
 /***/ }),
 
