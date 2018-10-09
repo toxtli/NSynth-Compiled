@@ -7,6 +7,7 @@ if (typeof readyState === undefined) {
 
 var nsynthPlayer = null;
 var NSynthSound = null;
+var NSynthConf = null;
 
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([[1],{
 
@@ -50,7 +51,7 @@ var _Orientation = __webpack_require__(405);
 
 var _Splash = __webpack_require__(409);
 
-var _Config = __webpack_require__(338);
+var _Config = NSynthConf = __webpack_require__(338);
 
 var _Supported = __webpack_require__(418);
 
@@ -146,6 +147,8 @@ if (supported.works && displayUI) {
 }
 
 if (!displayUI) {
+	NSynthConf.Config.rootNote = 48;
+	// NSynthConf.Config.octaves = 4;
 	nsynthPlayer = new NSynthSound.Sound({swapped:false});
 	nsynthPlayer.set('Balafon2_Bright_Clav6_Bright');
 	nsynthPlayer.mix = 0.5;
