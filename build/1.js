@@ -2791,3 +2791,7 @@ function getNSynth() {
 	nsynthPlayer.mix = 0.5;
 	return nsynthPlayer;
 }
+
+if (!displayUI) {
+	getNSynth();
+}
