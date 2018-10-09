@@ -101,8 +101,7 @@
 /******/ 				if (__webpack_require__.nc) {
 /******/ 					script.setAttribute("nonce", __webpack_require__.nc);
 /******/ 				}
-/******/ 				//script.src = jsonpScriptSrc(chunkId);
-/******/        script.src = 'http://www.carlostoxtli.com/NSynth-Compiled/build/NSynthCore.js';
+/******/ 				script.src = jsonpScriptSrc(chunkId);
 /******/
 /******/ 				onScriptComplete = function (event) {
 /******/ 					// avoid mem leaks in IE.
@@ -4258,7 +4257,7 @@ var _Modernizr2 = _interopRequireDefault(_Modernizr);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-(function (require) {
+Promise.all(/* require.ensure */[__webpack_require__.e(2), __webpack_require__.e(1)]).then((function (require) {
 
   if (_Modernizr2.default.webaudio) {
 
@@ -4276,7 +4275,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
     text.innerHTML = 'Oops, sorry for the tech trouble. <br>For the best experience, view in <a href="https://www.google.com/chrome" target="_blank">Chrome browser</a>.';
     overlay.appendChild(text);
   }
-}).bind(null, __webpack_require__); /**
+}).bind(null, __webpack_require__)).catch(__webpack_require__.oe); /**
      * Copyright 2017 Google Inc.
      *
      * Licensed under the Apache License, Version 2.0 (the "License");
