@@ -69,7 +69,7 @@ var supported = new _Supported.Supported(); /**
                                              * limitations under the License.
                                              */
 
-if (supported.works) {
+if (supported.works && displayUI) {
 	var hidden = document.createElement('div');
 	if (!displayUI) {
 		hidden.style.display = 'none';
@@ -82,8 +82,6 @@ if (supported.works) {
 	var loader = new _Loader.Loader(hidden, keyboard, waveform);
 	var slider = new _Slider.Slider(hidden);
 	var orientation = new _Orientation.Orientation(hidden);
-
-	console.log(carousels);
 	var sound = nsynthPlayer = new _Sound.Sound(carousels);
 	sound.set(carousels.folder);
 	sound.mix = slider.value;
@@ -1991,8 +1989,10 @@ var Sound = exports.Sound = function () {
 		key: 'mix',
 		set: function set(val) {
 			//get the closest interpolation step
-			if (this._carousel.swapped) {
-				val = 1 - val;
+			if (displayUI) {
+				if (this._carousel.swapped) {
+					val = 1 - val;
+				}
 			}
 			this._mix = val;
 			var floor = Math.floor(val * _Config.Config.interpolationCount);
@@ -2785,8 +2785,9 @@ exports.push([module.i, "#unsupported{position:absolute;top:0;left:0;width:100%;
 
 }]);
 
-function changeAndPlay() {
-	nsynthPlayer.set('Balafon2_Bright_cat');
-	nsynthPlayer.mix = 0.2;
-	nsynthPlayer.noteOn(57);
+function getNSynth() {
+	nsynthPlayer = new _Sound.Sound({});
+	nsynthPlayer.set('Cuba_Trumpet_Guitar-Dual_Amped_Heavy');
+	nsynthPlayer.mix = 0.5;
+	return nsynthPlayer;
 }
