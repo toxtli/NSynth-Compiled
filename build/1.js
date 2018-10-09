@@ -70,7 +70,7 @@ var supported = new _Supported.Supported(); /**
                                              * limitations under the License.
                                              */
 
-if (supported.works && displayUI) {
+if (supported.works) {
 	var hidden = document.createElement('div');
 	if (!displayUI) {
 		hidden.style.display = 'none';
@@ -145,11 +145,11 @@ if (supported.works && displayUI) {
 	});
 }
 
-if (!displayUI) {
-	nsynthPlayer = new NSynthSound.Sound({});
-	nsynthPlayer.set('Balafon2_Bright_Clav6_Bright');
-	nsynthPlayer.mix = 0.5;
-}
+// if (!displayUI) {
+// 	nsynthPlayer = new NSynthSound.Sound({});
+// 	nsynthPlayer.set('Balafon2_Bright_Clav6_Bright');
+// 	nsynthPlayer.mix = 0.5;
+// }
 
 /***/ }),
 
@@ -1997,10 +1997,8 @@ var Sound = exports.Sound = function () {
 		key: 'mix',
 		set: function set(val) {
 			//get the closest interpolation step
-			if (displayUI) {
-				if (this._carousel.swapped) {
-					val = 1 - val;
-				}
+			if (this._carousel.swapped) {
+				val = 1 - val;
 			}
 			this._mix = val;
 			var floor = Math.floor(val * _Config.Config.interpolationCount);
@@ -2093,6 +2091,8 @@ var Source = exports.Source = function () {
 		} else {
 			for (var i = 0; i <= _Config.Config.octaves * (12 / _Config.Config.samplingInterval); i++) {
 				var midiNote = i * _Config.Config.samplingInterval + _Config.Config.rootNote;
+				console.log(mixA);
+				console.log(midiNote);
 				urls[midiNote] = _Config.Config.audioFolder + '/' + folder + '/' + mixA + '_' + midiNote + '.mp3';
 			}
 		}
