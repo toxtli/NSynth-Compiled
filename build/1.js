@@ -6,6 +6,7 @@ if (typeof readyState === undefined) {
 }
 
 var nsynthPlayer = null;
+var NSynthSound = null;
 
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([[1],{
 
@@ -41,7 +42,7 @@ var _Slider = __webpack_require__(386);
 
 __webpack_require__(127);
 
-var _Sound = __webpack_require__(391);
+var _Sound = NSynthSound = __webpack_require__(391);
 
 var _Loader = __webpack_require__(402);
 
@@ -2786,7 +2787,7 @@ exports.push([module.i, "#unsupported{position:absolute;top:0;left:0;width:100%;
 }]);
 
 function getNSynth() {
-	nsynthPlayer = new _Sound.Sound({});
+	nsynthPlayer = new NSynthSound.Sound({});
 	nsynthPlayer.set('Cuba_Trumpet_Guitar-Dual_Amped_Heavy');
 	nsynthPlayer.mix = 0.5;
 	return nsynthPlayer;
