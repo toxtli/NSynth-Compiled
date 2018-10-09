@@ -145,6 +145,12 @@ if (supported.works && displayUI) {
 	});
 }
 
+if (!displayUI) {
+	nsynthPlayer = new NSynthSound.Sound({});
+	nsynthPlayer.set('Cuba_Trumpet_Guitar-Dual_Amped_Heavy');
+	nsynthPlayer.mix = 0.5;
+}
+
 /***/ }),
 
 /***/ 338:
@@ -2785,14 +2791,3 @@ exports.push([module.i, "#unsupported{position:absolute;top:0;left:0;width:100%;
 /***/ })
 
 }]);
-
-function getNSynth() {
-	nsynthPlayer = new NSynthSound.Sound({});
-	nsynthPlayer.set('Cuba_Trumpet_Guitar-Dual_Amped_Heavy');
-	nsynthPlayer.mix = 0.5;
-	return nsynthPlayer;
-}
-
-if (!displayUI) {
-	getNSynth();
-}
