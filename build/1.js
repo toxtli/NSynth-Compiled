@@ -148,7 +148,6 @@ if (supported.works && displayUI) {
 
 if (!displayUI) {
 	NSynthConf.Config.rootNote = 48;
-	// NSynthConf.Config.octaves = 4;
 	nsynthPlayer = new NSynthSound.Sound({swapped:false});
 	nsynthPlayer.set('Balafon2_Bright_Clav6_Bright');
 	nsynthPlayer.mix = 0.5;
@@ -2092,13 +2091,8 @@ var Source = exports.Source = function () {
 		if (dontPitch) {
 			urls[60] = _Config.Config.audioFolder + '/' + folder + '/' + mixA + '_60.mp3';
 		} else {
-			console.log(_Config.Config.octaves);
-			console.log(_Config.Config.samplingInterval);
-			console.log(_Config.Config.octaves * (12 / _Config.Config.samplingInterval));
 			for (var i = 0; i <= _Config.Config.octaves * (12 / _Config.Config.samplingInterval); i++) {
 				var midiNote = i * _Config.Config.samplingInterval + _Config.Config.rootNote;
-				console.log(mixA);
-				console.log(midiNote);
 				urls[midiNote] = _Config.Config.audioFolder + '/' + folder + '/' + mixA + '_' + midiNote + '.mp3';
 			}
 		}
