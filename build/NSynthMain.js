@@ -128,7 +128,7 @@
 /******/ 				head.appendChild(script);
 /******/ 			}
 /******/ 		}
-/******/ 		return Promise.all(promises);
+/******/ 		return Promise.all();
 /******/ 	};
 /******/
 /******/ 	// expose the modules object (__webpack_modules__)
