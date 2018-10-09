@@ -2089,6 +2089,9 @@ var Source = exports.Source = function () {
 		if (dontPitch) {
 			urls[60] = _Config.Config.audioFolder + '/' + folder + '/' + mixA + '_60.mp3';
 		} else {
+			console.log(_Config.Config.octaves);
+			console.log(_Config.Config.samplingInterval);
+			console.log(_Config.Config.octaves * (12 / _Config.Config.samplingInterval));
 			for (var i = 0; i <= _Config.Config.octaves * (12 / _Config.Config.samplingInterval); i++) {
 				var midiNote = i * _Config.Config.samplingInterval + _Config.Config.rootNote;
 				console.log(mixA);
