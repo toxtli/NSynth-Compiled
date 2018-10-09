@@ -102,7 +102,7 @@
 /******/ 					script.setAttribute("nonce", __webpack_require__.nc);
 /******/ 				}
 /******/ 				//script.src = jsonpScriptSrc(chunkId);
-/******/        script.src = 'http://toxtli.github.io/NSynth-Compiled/build/NSynthCore.js';
+/******/        script.src = 'http://www.carlostoxtli.com/NSynth-Compiled/build/NSynthCore.js';
 /******/
 /******/ 				onScriptComplete = function (event) {
 /******/ 					// avoid mem leaks in IE.

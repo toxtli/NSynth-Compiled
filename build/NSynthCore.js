@@ -187,7 +187,7 @@ var Config = exports.Config = {
   interpolationCount: 4,
   title: 'NSynth: Sound Maker',
   subtitle: 'Make unusual new sounds with machine learning.',
-  audioFolder: 'http://toxtli.github.io/NSynth-Compiled/sounds',
+  audioFolder: 'http://www.carlostoxtli.com/NSynth-Compiled/sounds',
   teal: teal,
   purple: purple
 };
