@@ -5,6 +5,7 @@ if (typeof readyState === undefined) {
 	var readyState = true;
 }
 
+var nsynthSampler = null;
 var nsynthPlayer = null;
 var NSynthSound = null;
 var NSynthConf = null;
@@ -2100,7 +2101,7 @@ var Source = exports.Source = function () {
 			}
 		}
 
-		this._sampler = new _MultiSampler2.default(urls, {
+		this._sampler = nsynthSampler = new _MultiSampler2.default(urls, {
 			volume: -Infinity,
 			release: 0.3
 		}).toMaster();
