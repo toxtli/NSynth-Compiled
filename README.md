@@ -1,3 +1,5 @@
+Static demo link: http://www.carlostoxtli.com/NSynth-Compiled/.
+
 This is the source code and sounds to the A.I. Experiment, [NSynth: Sound Maker](https://aiexperiments.withgoogle.com/sound-maker).  
 
 This experiment lets you play with new sounds created with machine learning. It's built using [Nsynth](https://magenta.tensorflow.org/nsynth), a research project that trained a neural network on over 300,000 instrument sounds. 
