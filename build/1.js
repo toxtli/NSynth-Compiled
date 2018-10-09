@@ -65,7 +65,7 @@ var supported = new _Supported.Supported(); /**
 if (supported.works) {
 
 	var keyboard = new _Keyboard.Keyboard(document.body);
-	var ready = false;
+	var ready = true;
 	var carousels = new _Selectors.Selectors(document.body);
 	var waveform = new _Waveform.Waveform(document.body);
 	var loader = new _Loader.Loader(document.body, keyboard, waveform);
@@ -128,7 +128,7 @@ if (supported.works) {
 
 	var splash = new _Splash.Splash(document.body);
 	splash.on('about', function () {
-		ready = false;
+		ready = true;
 	});
 	splash.on('play', function () {
 		ready = true;
