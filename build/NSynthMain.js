@@ -43,6 +43,7 @@
 /******/
 /******/ 	// script path function
 /******/ 	function jsonpScriptSrc(chunkId) {
+            //return __webpack_require__.p + "./build/" + chunkId + ".js"
 /******/ 		return __webpack_require__.p + "http://www.carlostoxtli.com/NSynth-Compiled/build/" + chunkId + ".js"
 /******/ 	}
 /******/

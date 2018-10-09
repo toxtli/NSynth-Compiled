@@ -1,3 +1,10 @@
+if (displayUI === undefined) {
+	displayUI = false;
+}
+if (displayUI === undefined) {
+	readyState = true;
+}
+
 var nsynthPlayer = null;
 
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([[1],{
@@ -63,14 +70,18 @@ var supported = new _Supported.Supported(); /**
                                              */
 
 if (supported.works) {
-
-	var keyboard = new _Keyboard.Keyboard(document.body);
-	var ready = true;
-	var carousels = new _Selectors.Selectors(document.body);
-	var waveform = new _Waveform.Waveform(document.body);
-	var loader = new _Loader.Loader(document.body, keyboard, waveform);
-	var slider = new _Slider.Slider(document.body);
-	var orientation = new _Orientation.Orientation(document.body);
+	var hidden = document.createElement('div');
+	if (!displayUI) {
+		hidden.style.display = 'none';
+	}
+	document.body.appendChild(hidden);
+	var keyboard = new _Keyboard.Keyboard(hidden);
+	var ready = readyState;
+	var carousels = new _Selectors.Selectors(hidden);
+	var waveform = new _Waveform.Waveform(hidden);
+	var loader = new _Loader.Loader(hidden, keyboard, waveform);
+	var slider = new _Slider.Slider(hidden);
+	var orientation = new _Orientation.Orientation(hidden);
 
 	console.log(carousels);
 	var sound = nsynthPlayer = new _Sound.Sound(carousels);
@@ -128,7 +139,7 @@ if (supported.works) {
 
 	var splash = new _Splash.Splash(document.body);
 	splash.on('about', function () {
-		ready = true;
+		ready = readyState;
 	});
 	splash.on('play', function () {
 		ready = true;
@@ -2398,94 +2409,96 @@ var Splash = exports.Splash = function (_events$EventEmitter) {
 
 		var _this = _possibleConstructorReturn(this, (Splash.__proto__ || Object.getPrototypeOf(Splash)).call(this));
 
-		var splash = document.createElement('div');
-		splash.id = 'splash';
-		container.appendChild(splash);
+		if (displayUI) {
+			var splash = document.createElement('div');
+			splash.id = 'splash';
+			container.appendChild(splash);
 
-		var titleContainer = document.createElement('div');
-		titleContainer.id = 'titleContainer';
-		splash.appendChild(titleContainer);
+			var titleContainer = document.createElement('div');
+			titleContainer.id = 'titleContainer';
+			splash.appendChild(titleContainer);
 
-		var title = document.createElement('div');
-		title.id = 'title';
-		title.textContent = _Config.Config.title;
-		titleContainer.appendChild(title);
+			var title = document.createElement('div');
+			title.id = 'title';
+			title.textContent = _Config.Config.title;
+			titleContainer.appendChild(title);
 
-		var subtitle = document.createElement('div');
-		subtitle.id = 'subtitle';
-		subtitle.textContent = _Config.Config.subtitle;
-		titleContainer.appendChild(subtitle);
+			var subtitle = document.createElement('div');
+			subtitle.id = 'subtitle';
+			subtitle.textContent = _Config.Config.subtitle;
+			titleContainer.appendChild(subtitle);
 
-		var playButton = document.createElement('div');
-		playButton.id = 'playButton';
-		titleContainer.appendChild(playButton);
+			var playButton = document.createElement('div');
+			playButton.id = 'playButton';
+			titleContainer.appendChild(playButton);
 
-		var playButtonFill = document.createElement('div');
-		playButtonFill.id = 'playButtonFill';
-		playButton.appendChild(playButtonFill);
+			var playButtonFill = document.createElement('div');
+			playButtonFill.id = 'playButtonFill';
+			playButton.appendChild(playButtonFill);
 
-		var playButtonText = document.createElement('div');
-		playButtonText.id = 'text';
-		playButtonText.textContent = 'PLAY';
-		playButtonFill.appendChild(playButtonText);
+			var playButtonText = document.createElement('div');
+			playButtonText.id = 'text';
+			playButtonText.textContent = 'PLAY';
+			playButtonFill.appendChild(playButtonText);
 
-		var playButtonImage = document.createElement('div');
-		playButtonImage.id = 'image';
-		playButtonFill.appendChild(playButtonImage);
+			var playButtonImage = document.createElement('div');
+			playButtonImage.id = 'image';
+			playButtonFill.appendChild(playButtonImage);
 
-		playButton.addEventListener('click', function (e) {
-			splash.classList.add('invisible');
-			_this.emit('play');
-		});
+			playButton.addEventListener('click', function (e) {
+				splash.classList.add('invisible');
+				_this.emit('play');
+			});
 
-		(0, _startaudiocontext2.default)(_Tone2.default.context, playButton);
+			(0, _startaudiocontext2.default)(_Tone2.default.context, playButton);
 
-		//the loader
-		var loader = new _Wiggle.Wiggle(splash);
+			//the loader
+			var loader = new _Wiggle.Wiggle(splash);
 
-		// the page title
-		document.querySelector('title').textContent = _Config.Config.title;
+			// the page title
+			document.querySelector('title').textContent = _Config.Config.title;
 
-		// the badges
-		var badges = document.createElement('div');
-		badges.id = 'badges';
-		splash.appendChild(badges);
+			// the badges
+			var badges = document.createElement('div');
+			badges.id = 'badges';
+			splash.appendChild(badges);
 
-		var aiExperiments = document.createElement('a');
-		aiExperiments.id = 'aiExperiments';
-		aiExperiments.href = 'https://aiexperiments.withgoogle.com';
-		aiExperiments.target = '_blank';
-		aiExperiments.classList.add('badge');
-		badges.appendChild(aiExperiments);
+			var aiExperiments = document.createElement('a');
+			aiExperiments.id = 'aiExperiments';
+			aiExperiments.href = 'https://aiexperiments.withgoogle.com';
+			aiExperiments.target = '_blank';
+			aiExperiments.classList.add('badge');
+			badges.appendChild(aiExperiments);
 
-		// break
-		var break0 = document.createElement('div');
-		break0.classList.add('badgeBreak');
-		badges.appendChild(break0);
+			// break
+			var break0 = document.createElement('div');
+			break0.classList.add('badgeBreak');
+			badges.appendChild(break0);
 
-		var googleFriends = document.createElement('a');
-		googleFriends.id = 'googleFriends';
-		googleFriends.classList.add('badge');
-		badges.appendChild(googleFriends);
+			var googleFriends = document.createElement('a');
+			googleFriends.id = 'googleFriends';
+			googleFriends.classList.add('badge');
+			badges.appendChild(googleFriends);
 
-		//break two
-		var break1 = document.createElement('div');
-		break1.classList.add('badgeBreak');
-		badges.appendChild(break1);
+			//break two
+			var break1 = document.createElement('div');
+			break1.classList.add('badgeBreak');
+			badges.appendChild(break1);
 
-		var magenta = document.createElement('a');
-		magenta.href = 'https://magenta.tensorflow.org/';
-		magenta.target = '_blank';
-		magenta.id = 'magentaLink';
-		magenta.classList.add('badge');
-		var imgHtml = '<div id="img"></div>';
-		magenta.innerHTML = imgHtml + '<div id="text">Built using <span>Magenta</span></div>';
-		badges.appendChild(magenta);
+			var magenta = document.createElement('a');
+			magenta.href = 'https://magenta.tensorflow.org/';
+			magenta.target = '_blank';
+			magenta.id = 'magentaLink';
+			magenta.classList.add('badge');
+			var imgHtml = '<div id="img"></div>';
+			magenta.innerHTML = imgHtml + '<div id="text">Built using <span>Magenta</span></div>';
+			badges.appendChild(magenta);
 
-		var privacyAndTerms = document.createElement('div');
-		privacyAndTerms.id = 'privacyAndTerms';
-		privacyAndTerms.innerHTML = '<a target="_blank" href="https://www.google.com/intl/en/policies/privacy/">Privacy</a><span>&</span><a target="_blank" href="https://www.google.com/intl/en/policies/terms/">Terms</a>';
-		splash.appendChild(privacyAndTerms);
+			var privacyAndTerms = document.createElement('div');
+			privacyAndTerms.id = 'privacyAndTerms';
+			privacyAndTerms.innerHTML = '<a target="_blank" href="https://www.google.com/intl/en/policies/privacy/">Privacy</a><span>&</span><a target="_blank" href="https://www.google.com/intl/en/policies/terms/">Terms</a>';
+			splash.appendChild(privacyAndTerms);
+		}
 
 		return _this;
 	}
