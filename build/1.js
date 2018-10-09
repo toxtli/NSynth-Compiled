@@ -1955,7 +1955,7 @@ var Sound = exports.Sound = function () {
 
 		this._sources = [];
 		this._carousel = carousel;
-
+		this._folder = null;
 		this._mix = 0.5;
 	}
 
@@ -1963,6 +1963,7 @@ var Sound = exports.Sound = function () {
 		key: 'set',
 		value: function set(folder) {
 			// dispose the old stuff
+			this._folder = folder;
 			this._sources.map(function (source) {
 				return source.dispose();
 			});
@@ -2001,7 +2002,10 @@ var Sound = exports.Sound = function () {
 					val = 1 - val;
 				}
 			} else {
-				val = 1 - val;
+				var comboA = this._folder;
+				if(!_Folders2.default.includes(comboA)) {
+					val = 1 - val;
+				}
 			}
 			this._mix = val;
 			var floor = Math.floor(val * _Config.Config.interpolationCount);
