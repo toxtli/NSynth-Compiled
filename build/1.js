@@ -151,6 +151,9 @@ if (!displayUI) {
 	nsynthPlayer = new NSynthSound.Sound({swapped:false});
 	nsynthPlayer.set('Balafon2_Bright_Clav6_Bright');
 	nsynthPlayer.mix = 0.5;
+	if (typeof NSynthLoaded !== undefined) {
+		NSynthLoaded();
+	}
 }
 
 /***/ }),
