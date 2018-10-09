@@ -1,8 +1,8 @@
 if (typeof displayUI === undefined) {
-	displayUI = false;
+	var displayUI = false;
 }
 if (typeof readyState === undefined) {
-	readyState = true;
+	var readyState = true;
 }
 
 var nsynthPlayer = null;
