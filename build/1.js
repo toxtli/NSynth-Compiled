@@ -147,7 +147,7 @@ if (supported.works && displayUI) {
 
 if (!displayUI) {
 	nsynthPlayer = new NSynthSound.Sound({});
-	nsynthPlayer.set('Balafon2_Bright_Clarinet_Combi');
+	nsynthPlayer.set('Balafon2_Bright_Clav6_Bright');
 	nsynthPlayer.mix = 0.5;
 }
 
