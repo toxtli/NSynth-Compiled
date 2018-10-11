@@ -1,7 +1,7 @@
-if (typeof displayUI === undefined) {
+if (typeof displayUI == 'undefined') {
 	var displayUI = false;
 }
-if (typeof readyState === undefined) {
+if (typeof readyState == 'undefined') {
 	var readyState = true;
 }
 
@@ -2102,7 +2102,7 @@ var Source = exports.Source = function () {
 			volume: -Infinity,
 			release: 0.3
 		}).toMaster();
-		if (!(typeof NSynthLoaded === undefined)) {
+		if (typeof NSynthLoaded != 'undefine') {
 			NSynthLoaded(urls);
 		}
 	}
