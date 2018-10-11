@@ -2102,7 +2102,7 @@ var Source = exports.Source = function () {
 			volume: -Infinity,
 			release: 0.3
 		}).toMaster();
-		if (typeof NSynthLoaded != 'undefine') {
+		if (typeof NSynthLoaded != 'undefined') {
 			NSynthLoaded(urls);
 		}
 	}
